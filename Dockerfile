@@ -2,7 +2,7 @@ FROM       openjdk:alpine
 MAINTAINER Alex Tilcock <a_tilcock@hotmail.com>
 
 ARG        DIST_MIRROR=http://archive.apache.org/dist/nifi
-ARG        VERSION=1.3.0
+ARG        VERSION=1.4.0
 
 ENV        NIFI_HOME=/opt/nifi 
 ENV        NIFI_WEB_PORT=8080
@@ -32,7 +32,7 @@ ADD             ./DBDrivers/ /opt/dbdrivers
 ADD             ./xsltfiles /opt/xsltfiles
 
 #copy custom nar files 
-ADD             ./lib ${NIFI_HOME}/lib
+#ADD             ./lib ${NIFI_HOME}/lib
 
 ADD             ./scripts  /opt/scripts
 
