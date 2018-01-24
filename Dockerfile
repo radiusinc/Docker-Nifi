@@ -1,5 +1,4 @@
-FROM       openjdk:alpine
-MAINTAINER Alex Tilcock <a_tilcock@hotmail.com>
+FROM       openjdk
 
 ARG        DIST_MIRROR=http://archive.apache.org/dist/nifi
 ARG        VERSION=1.5.0
@@ -8,8 +7,9 @@ ENV        NIFI_HOME=/opt/nifi
 ENV        NIFI_WEB_PORT=8080
 ENV        NIFI_SITE_TO_SITE_PORT=8081
 
-
-RUN        apk update && apk add --upgrade bash curl openjdk8 && \
+#  && apt-get  --upgrade bash curl openjdk8 
+# # 
+RUN        apt-get update && \
            mkdir -p ${NIFI_HOME} && \
            curl ${DIST_MIRROR}/${VERSION}/nifi-${VERSION}-bin.tar.gz | tar xvz -C ${NIFI_HOME} && \
            mv ${NIFI_HOME}/nifi-${VERSION}/* ${NIFI_HOME} && \
